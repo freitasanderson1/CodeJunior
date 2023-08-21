@@ -94,3 +94,54 @@ https://12factor.net/
 ##### Ambiente de Desenvolvimento: Fornecer um ambiente de desenvolvimento configurável e documentado.
 ##### Acessibilidade: Certificar-se de que o servidor ou os computadores sejam acessíveis a um público amplo.
 ##### Documentação: Documente detalhadamente como utilizar o servidor ou os computadores, tanto para hospedagem quanto para aprendizado de programação.
+
+## Model Business Canvas:
+[Link do Canvas](https://canvas-apps.pr.sebrae.com.br/canvas-api/api/v3/canvas/1260665/download?model=0)
+#### Parceiros Chave:
+##### Organizações de código aberto para colaboração e projetos conjuntos.
+##### Escolas e instituições educacionais para promoção e alcance de alunos.
+##### Especialistas em programação para contribuir com conteúdo educacional.
+
+#### Atividades Chave:
+##### Desenvolvimento e manutenção contínua da plataforma.
+##### Criação de conteúdo educacional, incluindo tutoriais e cursos.
+##### Monitoramento e interação com a comunidade de usuários.
+##### Promoção do projeto em eventos e plataformas online.
+
+#### Proposta de Valor:
+##### Acesso gratuito a hospedagem de projetos ou a computadores para aprendizado de programação.
+##### Ambiente de aprendizado prático para iniciantes.
+##### Hospedagem para projetos de código aberto e causas sociais.
+##### Comunidade de aprendizado e colaboração.
+
+#### Relacionamento com o Cliente:
+##### Suporte online via fóruns, chat e canais de comunicação.
+##### Fomentar uma comunidade de aprendizado e colaboração.
+##### Coletar e incorporar feedback para melhorar a plataforma.
+
+#### Segmento de Mercado:
+##### Iniciantes em programação buscando aprender e praticar.
+##### Desenvolvedores e projetos de código aberto em busca de hospedagem.
+##### Comunidades locais com acesso limitado a recursos de tecnologia.
+
+#### Recursos Chave:
+##### Hardware do TV Box convertido (servidor ou computadores).
+##### Plataforma online para acesso e interação.
+##### Conteúdo educacional (tutoriais, cursos).
+##### Equipe para desenvolvimento, suporte e criação de conteúdo.
+
+#### Canais:
+##### Plataforma online para acesso aos recursos.
+##### Website com tutoriais, cursos e documentação.
+##### Eventos locais e promoção em redes sociais.
+
+#### Estrutura de Custos:
+##### Desenvolvimento e manutenção da plataforma.
+##### Hospedagem online dos recursos.
+##### Criação contínua de conteúdo educacional.
+##### Suporte e atendimento ao cliente.
+
+#### Fontes de Renda:
+##### Doações voluntárias de indivíduos e organizações que apoiam a causa.
+##### Assinaturas premium para acesso a recursos adicionais e benefícios extras.
+##### Parcerias de patrocínio com empresas alinhadas com a missão do projeto.
