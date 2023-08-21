@@ -31,7 +31,7 @@ https://12factor.net/
 ##
 # Escopo do Projeto:
 ## Principais funcionalidades:
-##### Transformar um TV Box apreendido pela Receita Federal em um servidor para hospedar projetos gratuitamente ou em computadores para o aprendizado de programação, com um forte foco em impacto social positivo.
+##### Transformar um TV Box apreendido pela Receita Federal  em computadores para o aprendizado de programação ou para hospedar projetos gratuitamente, com um forte foco em impacto social positivo. A TV Box será um recurso chave para o desenvolvimento do projeto, por conta do seu baixo custo e da necessidade de dar uma nova destinação para um equipamento que até então, seria ilegal. Com isso iríamos reduzir o lixo eletrônico e impactar positivamente a sociedade (Listagem de alguns dos impactos logo abaixo).
 
 #### 1 - Hospedagem de Projetos:
 
