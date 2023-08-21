@@ -30,7 +30,7 @@ https://12factor.net/
 
 ##
 # Escopo do Projeto:
-## Objetivo Principal:
+## Principais funcionalidades:
 ##### Transformar um TV Box apreendido pela Receita Federal em um servidor para hospedar projetos gratuitamente ou em computadores para o aprendizado de programação, com um forte foco em impacto social positivo.
 
 #### 1 - Hospedagem de Projetos:
@@ -49,3 +49,48 @@ https://12factor.net/
 
 #### 5 - Acessibilidade e Documentação:
 ##### Garantir que o servidor e os recursos de aprendizado sejam acessíveis a um público diversificado. Criar documentação detalhada sobre como usar o servidor e aproveitar os recursos de aprendizado.
+
+## Impactos Sociais esperados:
+#### Transformar o TV Box em um servidor para hospedar projetos gratuitamente ou em computadores para o aprendizado de programação pode gerar vários impactos sociais positivos. Aqui estão alguns dos impactos sociais que poderiam ser alcançados com esse projeto:
+
+##### Acesso à Tecnologia e Aprendizado: Disponibilizar computadores ou recursos de hospedagem de projetos gratuitamente permitiria que pessoas que não têm acesso fácil a equipamentos ou recursos de TI pudessem aprender programação, desenvolver projetos e expandir suas habilidades tecnológicas.
+
+##### Inclusão Digital: Contribuir para a inclusão digital ao proporcionar um ambiente de aprendizado para pessoas que podem estar em desvantagem devido à falta de acesso a dispositivos e recursos digitais.
+
+##### Empoderamento Econômico: Capacitar pessoas com habilidades em programação pode aumentar suas oportunidades de emprego e trabalho autônomo na economia digital.
+
+##### Aprendizado Colaborativo: Fomentar uma comunidade de aprendizado colaborativo onde os usuários possam compartilhar conhecimento, colaborar em projetos e melhorar coletivamente suas habilidades.
+
+##### Apoio a Projetos de Impacto: Oferecer uma plataforma de hospedagem para projetos de código aberto ou de impacto social pode ampliar o alcance desses projetos, promovendo causas importantes e apoiando soluções inovadoras.
+
+##### Redução de Barreiras Financeiras: Eliminar custos associados à hospedagem de projetos ou à obtenção de equipamentos para aprendizado, tornando o desenvolvimento e a aprendizagem mais acessíveis.
+
+##### Desenvolvimento de Habilidades Técnicas: Contribuir para a formação de uma geração de indivíduos com habilidades técnicas sólidas, preparando-os para enfrentar os desafios do mundo digital.
+
+##### Promoção da Ética da Comunidade Open Source: Fomentar a cultura de código aberto e compartilhamento, onde as pessoas colaboram e contribuem com o conhecimento em benefício da comunidade.
+
+##### Inspiração para a Próxima Geração: Inspirar jovens a se envolverem em ciência da computação, tecnologia e programação, promovendo futuras gerações de profissionais de tecnologia.
+
+##### Fortalecimento da Comunidade: Criar uma comunidade de pessoas interessadas em tecnologia e programação, incentivando o networking e a colaboração entre os participantes.
+
+##### Ao esses impactos sociais não apenas desenvolverá uma solução técnica, mas também estará contribuindo para a capacitação e transformação positiva da vida das pessoas através da tecnologia. É importante certificar-se de medir e avaliar esses impactos à medida que o projeto avança para entender melhor sua influência na comunidade.
+
+## Requisitos baseados nos "The Twelve-Factor App":
+##### Código-base: O projeto será organizado em um repositório Git, seguindo o GitFlow.
+
+##### Configurações: As configurações serão armazenadas fora do código, permitindo a configuração fácil do servidor ou dos computadores.
+
+##### Dependências: Todas as dependências serão gerenciadas de forma declarativa, por exemplo, utilizando um gerenciador de pacotes.
+
+##### Backends de serviço: Componentes separados em serviços independentes, facilitando a manutenção e escalabilidade.
+
+##### Build, release e run: Automatização do processo de construção, implantação e execução do servidor ou dos computadores.
+
+##### Processos: Executar o servidor ou os computadores como processos isolados.
+
+## Outros Requisitos:
+##### Semantic Versioning: Utilizar o Semantic Versioning para versionar o projeto.
+##### Code Review: Todas as alterações de código devem passar por revisões de código antes de serem mescladas.
+##### Ambiente de Desenvolvimento: Fornecer um ambiente de desenvolvimento configurável e documentado.
+##### Acessibilidade: Certificar-se de que o servidor ou os computadores sejam acessíveis a um público amplo.
+##### Documentação: Documente detalhadamente como utilizar o servidor ou os computadores, tanto para hospedagem quanto para aprendizado de programação.
