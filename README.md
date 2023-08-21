@@ -28,30 +28,24 @@ https://12factor.net/
 
 5. O desenvolvimento do Produto e a sua apresentação Técnica e Comercial(Venda) são pré-requisitos básicos para a aprovação.
 
+##
+# Escopo do Projeto:
+## Objetivo Principal:
+##### Transformar um TV Box apreendido pela Receita Federal em um servidor para hospedar projetos gratuitamente ou em computadores para o aprendizado de programação, com um forte foco em impacto social positivo.
 
+#### 1 - Hospedagem de Projetos:
 
-### Os Doze Fatores
-##### I. Base de código
-    Uma base de código rastreada no controle de revisão, muitas implantações
-##### II. Dependências
-    Declare e isole explicitamente as dependências
-##### III. Configuração
-    Armazenar configuração no ambiente
-##### IV. Serviços de apoio
-    Tratar serviços de apoio como recursos anexados
-##### V. Construir, liberar, executar
-    Estágios de construção e execução estritamente separados
-##### VI. Processos
-    Execute o aplicativo como um ou mais processos sem estado
-##### VII. Ligação de porta
-    Exportar serviços via ligação de porta
-##### VIII. Simultaneidade
-    Escale horizontalmente por meio do modelo de processo
-##### IX. Descartabilidade
-    Maximize a robustez com inicialização rápida e desligamento normal
-##### X. Paridade de desenvolvimento/produção
-    Mantenha o desenvolvimento, preparação e produção o mais semelhante possível
-##### XI. Histórico
-    Tratar logs como fluxos de eventos
-##### XII. Processos administrativos
-    Execute tarefas de administração/gerenciamento como processos únicos
+##### Configurar o TV Box como um servidor de hospedagem para projetos de código aberto. Fornecer recursos para hospedar sites, aplicativos ou outros projetos. Garantir que os projetos hospedados sejam de acesso público e gratuito.
+
+#### 2 - Aprendizado de Programação:
+
+##### Oferecer um ambiente onde iniciantes em programação possam praticar suas habilidades. Disponibilizar ferramentas e recursos para aprender linguagens de programação, frameworks e conceitos. Incluir integrações com plataformas de cursos online e guias para orientar os usuários durante o processo de aprendizado.
+
+#### 3 - Gerenciamento de Tarefas e Notas:
+##### Integre aplicativos de gerenciamento de tarefas e notas para manter um registro organizado das suas atividades e objetivos de aprendizado.
+
+#### 4 - Ferramentas de Produtividade:
+##### Explore aplicativos de produtividade, como editores de texto, planilhas e aplicativos de apresentação, para criar documentos, organizar informações e preparar apresentações.
+
+#### 5 - Acessibilidade e Documentação:
+##### Garantir que o servidor e os recursos de aprendizado sejam acessíveis a um público diversificado. Criar documentação detalhada sobre como usar o servidor e aproveitar os recursos de aprendizado.
