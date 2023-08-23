@@ -6,3 +6,5 @@
 - [ ] RF04 - Interface do Usuário (UI) [RafaelSoares12](https://github.com/RafaelSoares12)
 - [ ] RF05 - Cadastro de Usuário [RafaelSoares12](https://github.com/RafaelSoares12)
 - [ ] RF06 - Autenticação de Usuário [RafaelSoares12](https://github.com/RafaelSoares12)
+- [ ] RF07 - Biblioteca de Conteúdo [luc4sm0ur4](https://github.com/luc4sm0ur4)
+- [ ] RF08 - Gamificação [luc4sm0ur4](https://github.com/luc4sm0ur4)
