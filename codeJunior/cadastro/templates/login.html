@@ -1,0 +1,33 @@
+<!-- accounts/templates/accounts/login.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    <div class="min-h-screen flex items-center justify-center">
+        <div class="bg-white p-8 rounded shadow-md w-96">
+            <h1 class="text-2xl font-semibold mb-4">Entrar</h1>
+            <form method="post">
+                {% csrf_token %}
+                <div class="mb-4">
+                    <label for="username" class="block font-medium text-gray-700">Nome de Usuário:</label>
+                    <input type="text" name="username" id="username" class="w-full p-2 border rounded mt-1" required>
+                </div>
+                <div class="mb-4">
+                    <label for="password" class="block font-medium text-gray-700">Senha:</label>
+                    <input type="password" name="password" id="password" class="w-full p-2 border rounded mt-1" required>
+                </div>
+                <div class="flex justify-between">
+                    <a href="{% url 'signup' %}" class=" text-blue font-medium px-4 py-2 rounded hover:bg-blue-600">Cadastro</a>
+                    <button type="submit" class="bg-blue-500 text-white font-medium px-4 py-2 rounded hover:bg-blue-600">Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     ####
-    "problemasProgramacao"
+    "problemasProgramacao",
+    "cadastro",
 ]
 
 MIDDLEWARE = [
@@ -98,8 +99,10 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
+LOGIN_URL = '/codejunior/login/'
+LOGIN_REDIRECT_URL = '/codejunior/admin/'
 
-LANGUAGE_CODE = "en-us"
+LANGUAGE_CODE = 'pt-BR'
 
 TIME_ZONE = "UTC"
 
@@ -110,6 +113,8 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
 STATIC_URL = '/codeJunior/static/'
