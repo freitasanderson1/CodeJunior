@@ -1,10 +1,11 @@
 import subprocess
 from django.views.generic.edit import CreateView
 from problemasProgramacao.models.Submissao import Submissao
+from problemasProgramacao.forms import SubmissaoForm
 
 class SubmissaoCreateView(CreateView):
     model = Submissao
-    fields = ['problema', 'codigo']
+    form_class = SubmissaoForm
     template_name = 'submissaoForm.html'
     success_url = '/problemas/submeter-tentativa/'
     
