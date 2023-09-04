@@ -12,10 +12,10 @@
 {% block content %}
 <div class="flex container mx-auto min-h-screen flex-col items-center justify-between px-24 py-12">
     <section class="w-1/2">
-        <h1 class="text-slate-900 font-extrabold text-4xl sm:text-5xl lg:text-6xl tracking-tight text-center dark:text-white">Submeter Tentativa</h1>
+        <h1 class="text-slate-50 font-extrabold text-4xl sm:text-5xl lg:text-6xl tracking-tight text-center">Submeter Tentativa</h1>
         <form class="mt-12" method="post">
             {% csrf_token %}
-
+            
             {% for field in form %}
                 <div class="mb-4">
                     {{ field.errors }}
