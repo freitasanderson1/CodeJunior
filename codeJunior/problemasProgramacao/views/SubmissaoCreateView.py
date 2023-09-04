@@ -7,7 +7,7 @@ class SubmissaoCreateView(CreateView):
     model = Submissao
     form_class = SubmissaoForm
     template_name = 'submissaoForm.html'
-    success_url = '/problemas/problemas-resolvidos/'
+    success_url = '/codejunior/resultado/'
     
     def form_valid(self, form):
         problema = form.cleaned_data['problema']
@@ -28,6 +28,7 @@ class SubmissaoCreateView(CreateView):
         try:
             resultadoBytes = subprocess.check_output(['python', '-c', codigo], stderr=subprocess.STDOUT, timeout=10)
             resultadoStr = resultadoBytes.decode('utf-8')
+            print(f'Resultado: {resultadoStr}')
             return resultadoStr
         except subprocess.CalledProcessError as e:
             return e.output.decode('utf-8')

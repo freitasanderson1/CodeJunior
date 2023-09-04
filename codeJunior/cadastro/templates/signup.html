@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.css" rel="stylesheet" />
+
+  {% block static_css %}{% endblock static_css %}
+
+  <title>
+    {% block title %}CodeJunior | App{% endblock title %}
+  </title>
+</head>
+<body>
+  <main class="bg-blue-950">
+    <div class="min-h-screen flex items-center justify-center">
+      {% if form.errors %}
+        <ul>
+            {% for field, errors in form.errors.items %}
+                <li>{{ field }}:
+                    <ul>
+                        {% for error in errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                </li>
+            {% endfor %}
+        </ul>
+      {% endif %}
+      <div class="bg-white p-8 rounded shadow-md w-96">
+          <h1 class="text-2xl font-semibold mb-4">Cadastro</h1>
+          <form method="post">
+              {% csrf_token %}
+              {{ form.username.label_tag }} 
+              <br>
+              {{ form.username }}
+              <br>
+              {{ form.password1.label_tag }} 
+              <br>
+              {{ form.password1 }}
+              <br>
+              {{ form.password2.label_tag }} 
+              <br>
+              {{ form.password2 }}
+              <br><br>
+              <button type="submit" class="bg-blue-500 text-white font-medium px-4 py-2 rounded hover:bg-blue-600">Cadastrar</button>
+          </form>
+      </div>
+  </div>
+  </main>
+
+  {% block static_js %}{% endblock static_js %}
+
+</body>
+</html>

@@ -8,20 +8,25 @@
 {% block content %}
 <div class="flex container mx-auto min-h-screen flex-col items-center justify-between px-24 py-12">
     <section class="w-1/2">
-        <h1 class="text-slate-900 font-extrabold text-4xl sm:text-5xl lg:text-6xl tracking-tight text-center dark:text-white">Problemas Resolvidos</h1>
+        <h1 class="text-slate-50 font-extrabold text-4xl sm:text-5xl lg:text-6xl tracking-tight text-center">Problemas Resolvidos</h1>
         <br>
-        <p>Para voltar para a página de problemas, clique <a href="{% url 'submeterTentativa' %}">aqui</a></p>
+        <p class="text-slate-50">Para voltar para a página de problemas, <a href="{% url 'submeterTentativa' %}">clique aqui</a></p>
         <br>
-        <ul>
+        <ul class="text-slate-50">
             {% for problema in object_list %}
             <li>
-                Problema:
+                Titulo do Problema:
                 {{problema.titulo}}
             </li>
             <li>
-                Minha solução:
+                Saída Esperada:
                 {{problema.solucao}}
             </li>
+            <li>
+                Sua Saída:
+                {{codigo}}
+            </li>
+            
             <li>
                 Dificuldade:
                 {{problema.dificuldade}}
