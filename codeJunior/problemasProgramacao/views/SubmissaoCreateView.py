@@ -7,7 +7,7 @@ class SubmissaoCreateView(CreateView):
     model = Submissao
     form_class = SubmissaoForm
     template_name = 'submissaoForm.html'
-    success_url = '/problemas/submeter-tentativa/'
+    success_url = '/problemas/problemas-resolvidos/'
     
     def form_valid(self, form):
         problema = form.cleaned_data['problema']
