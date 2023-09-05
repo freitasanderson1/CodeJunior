@@ -1,0 +1,97 @@
+{% extends 'base/base.html' %}
+
+{% load static %}
+
+{% block title %}Entrar{% endblock %}
+
+{% block content %}
+
+
+<div class="container d-flex align-items-center justify-content-between h-100">
+
+
+
+    <div class="">
+
+        <img src="{% static 'assets/IMG/LogoTelaLogin.png' %}" alt="Logo Nutricionistas" width="600">
+    </div>
+
+
+    <div class="justify-content-center">
+
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                        <div class="alert alert-warning alert-dismissible fade show">
+                            <span style="color:#fff;">
+                                {{ message|escape }}
+
+                            </span>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">X</button>
+                        </div>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        <form method="post" class="" validate>
+            {% csrf_token %}
+            <h2 class="">Entre em sua conta</h2>
+            <div class="col">
+
+                {% for field in form %}
+                    <div class="d-flex justify-content-center align-items-center col" style="padding-right: 10vw;">
+                        <ol class="">
+
+                            {% if field.name == 'username' %}
+                                <ul>
+
+                                    <div class="form-floating">
+                                        <input type="name" name="{{ field.name }}" class="form-control mb-0" id="floatingInputCPF" maxlength="11" placeholder="00000000" style="min-width:150px;" required pattern="[0-9]{11}">
+                                        <label for="floatingInputCPF">CPF<small><i>(Somente números):</i></small></label>
+                                    </div>
+                                </ul>
+
+                            {% else %}
+                                <ul>
+
+                                    <div class="form-floating">
+                                        <input type="password" name="{{ field.name }}" class="form-control mb-0" id="floatingInputPassword" placeholder="*********" style="min-width:150px;" minlenght="8" maxlength="20" required>
+                                        <label for="floatingInputPassword">{{ field.label_tag }}</label>
+                                    </div>
+                                </ul>
+
+                            {% endif %}
+
+
+                            {% if field.errors %}
+                            <ul>
+
+                                <b>
+
+                                    <small style="color:#b00000; font-size:12px;">{{ field.errors|striptags }}</small>
+                                </b>
+                            </ul>
+
+                            {% endif %}
+                        </ol>
+
+                    </div>
+                {% endfor %}
+
+            </div>
+
+            <div class="d-flex justify-content-center">
+
+                <input type="submit" value="Entrar" class="btn" style="font-size:18px; background-color:#228b22; color:#ffffff; text-shadow: 1px 1px 2px #000;">
+
+            </div>
+
+
+            <p class="">Perdeu sua senha? <a href="#" style="color:#228b22">Recupere aqui.</a></p>
+            <p class="">Você não tem um cadastro? <a href="{% url 'cadastro' %}" style="color:#228b22">Cadastre-se</a></p>
+        </form>
+
+    </div>
+</div>
+
+{% endblock%}
