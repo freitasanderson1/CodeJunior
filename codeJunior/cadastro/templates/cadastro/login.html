@@ -1,35 +1,46 @@
-{% extends 'base/base.html' %}
+<!DOCTYPE html>
+<html lang="pt-BR">
 
-{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrar</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css" rel="stylesheet">
+</head>
 
-{% block title %}Entrar{% endblock %}
+<body class="bg-gray-300">
 
-{% block content %}
+    <section class="h-screen">
+        <div class="container h-full">
+            <div class="g-6 flex h-full flex-wrap items-center justify-center lg:justify-between">
+                <div class="mb-12 md:mb-0 md:w-8/12 lg:w-6/12">
+                    <h1
+                        class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white ml-8">
+                        Code Junior</h1>
+                </div>
 
-<section class="h-screen">
-    <div class="container h-full px-6 py-24">
-        <div class="g-6 flex h-full flex-wrap items-center justify-center lg:justify-between">
-            <div class="mb-12 md:mb-0 md:w-8/12 lg:w-6/12">
-                <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white ml-8">Code Junior</h1>
-      </div>
+                <div class="min-h-screen flex items-center justify-center">
 
-    <div class="min-h-screen flex items-center justify-center">
-	          <form method="post" class="flex flex-col bg-white rounded shadow-lg p-12 mt-12" validate>
-                    {% csrf_token %}
-    		            <label class="font-semibold text-xs" for="username">Nome de Usuário:</label>
-		                <input class="flex items-center h-12 px-4 w-64 bg-gray-200 mt-2 rounded focus:outline-none focus:ring-2" name="username" id="username" type="text" required>
+                    <form method="post" class="flex flex-col bg-white rounded shadow-lg p-12 mt-12">
+                        <label class="font-semibold text-xs" for="username">Nome de Usuário:</label>
+                        <input
+                            class="flex items-center h-12 px-4 w-64 bg-gray-200 mt-2 rounded focus:outline-none focus:ring-2"
+                            name="username" id="username" type="text" required>
+                        <label class="font-semibold text-xs mt-3" for="password">Senha:</label>
+                        <input
+                            class="flex items-center h-12 px-4 w-64 bg-gray-200 mt-2 rounded focus:outline-none focus:ring-2"
+                            type="password" name="password" id="password" required>
+                        <button type="submit"
+                            class="flex items-center justify-center h-12 px-6 w-64 bg-blue-600 mt-8 rounded font-semibold text-sm text-blue-100 hover:bg-blue-700">Login</button>
+                        <div class="flex mt-6 justify-center text-xs">
+                            <span class="mx-2 text-gray-300">/</span>
+                            <a href="#" class="text-blue-400 hover:text-blue-500">Cadastro</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+    </section>
 
-		                <label class="font-semibold text-xs mt-3" for="password">Senha:</label>
-		                <input class="flex items-center h-12 px-4 w-64 bg-gray-200 mt-2 rounded focus:outline-none focus:ring-2"type="password" name="password" id="password" required>
-		            
-                        <button type="submit" class="flex items-center justify-center h-12 px-6 w-64 bg-blue-600 mt-8 rounded font-semibold text-sm text-blue-100 hover:bg-blue-700">Login</button>
-		            <div class="flex mt-6 justify-center text-xs">
-			            <span class="mx-2 text-gray-300">/</span>
-			            <a href="{% url 'signup' %}" class="text-blue-400 hover:text-blue-500">Cadastro</a>
-		            </div>
-	          </form>
-        </div>
-  </div>
-</section>
+</body>
 
-{% endblock%}
+</html>
