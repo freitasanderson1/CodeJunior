@@ -60,7 +60,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 
 LOGIN_URL = '/codejunior/login/'
-LOGIN_REDIRECT_URL = '/codejunior/admin/'
+LOGIN_REDIRECT_URL = '/codejunior/'
 
 LANGUAGE_CODE = 'pt-BR'
 

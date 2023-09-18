@@ -1,28 +1,18 @@
 import subprocess
+from typing import Any
+from django.forms.models import BaseModelForm
+from django.http import HttpRequest, HttpResponse
 from django.views.generic.edit import CreateView
 from desafios.models.Submissao import Submissao
 from desafios.forms import SubmissaoForm
+from desafios.models import Desafio
 
+from cadastro.models import Pessoa
 class SubmissaoCreateView(CreateView):
     model = Submissao
     form_class = SubmissaoForm
     template_name = 'submissaoForm.html'
     success_url = '/codejunior/resultado/'
-    
-    def form_valid(self, form):
-        problema = form.cleaned_data['problema']
-        codigo = form.cleaned_data['codigo']
-        resultadoUsuario = self.executarCodigo(codigo)
-    
-        form.instance.usuario = self.request.user
-        form.instance.resultado = resultadoUsuario
-    
-        if resultadoUsuario.strip() == problema.solucao.strip():
-            form.instance.resultado = "Passou"
-        else:
-            form.instance.resultado = "Falhou"
-        
-        return super().form_valid(form)
 
     def executarCodigo(self, codigo):
         try:
@@ -35,4 +25,23 @@ class SubmissaoCreateView(CreateView):
         except subprocess.TimeoutExpired:
             return "Tempo limite excedido."
         
+    def post(self, request, *args, **kwargs):
+
+        problema = Desafio.objects.get(id=self.request.POST['problema'])
+        print(f'Problema: {problema}')
+        codigo = self.request.POST['codigo']
+        resultadoUsuario = self.executarCodigo(codigo)
+        submissao = Submissao()
+    
+        submissao.pessoa = Pessoa.objects.get(user=self.request.user)
+        submissao.codigo = codigo
+        submissao.problema = problema
+    
+        if resultadoUsuario.strip() == problema.solucao.strip():
+            submissao.resultado = "Passou"
+        else:
+            submissao.resultado = "Falhou"
+
+        submissao.save()
         
+        return super().post(request, *args, **kwargs)

@@ -3,8 +3,9 @@ from django.views.generic.list import ListView
 from desafios.models.Desafio import Desafio
 from desafios.models.Submissao import Submissao
 from desafios.forms import SubmissaoForm
+from django.contrib.auth.mixins import LoginRequiredMixin
 
-class DesafiosListView(ListView):
+class DesafiosListView(LoginRequiredMixin, ListView):
     model = Desafio
     template_name = 'desafiosListView.html'
 
