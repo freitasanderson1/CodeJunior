@@ -1,180 +1,114 @@
-{% extends 'base/base.html' %}
+<!DOCTYPE html>
+<html lang="pt-BR">
 
-{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css" rel="stylesheet">
+</head>
 
-{% block title %}Cadastro{% endblock %}
-
-{% block content %}
-
-
-<div class="container d-flex align-items-top justify-content-between">
-
-    <div class="" style='width:600px;'>
-        <img src="{% static 'assets/IMG/LogoTelaCadastro.png' %}" alt="Logo Nutricionistas" width="600">
-    </div>
+<body class="bg-gray-300">
 
 
-    <div class=" ">
+    <section class="h-screen">
+        <div class="container h-full">
+            
+            <div class="g-6 flex h-full flex-wrap items-center justify-center lg:justify-between">
+                <div class="mb-12 md:mb-0 md:w-8/12 lg:w-6/12">
+                    <h1
+                        class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white ml-8">
+                        Code Junior</h1>
+                </div>
 
-        {% if messages %}
-            <ul class="messages">
-                {% for message in messages %}
-                    {% if message.tags == "success" %}
-                        {% if textSucess == 'Sucesso' %}
-                            <div class="alert alert-success alert-dismissible fade show text-white">
-                                Cadastro realizado com sucesso, você pode fazer login <a class="btn-link nav-link text-white"
-                                href="{% url 'login' %}">clicando aqui!</a>
-                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">X</button>
+                <div class="min-h-screen flex items-center justify-center">
+
+                    <form method="post" class="flex flex-col bg-white rounded shadow-lg p-12 mt-12 pl-26">
+                        
+                        <div class="grid grid-cols-2 gap-2">
+
+                            <div class="col-span-2 md:col-span-1">
+                                <label class="font-semibold text-xs mt-3" for="nome">Nome:</label>
+                                <input
+                                    class="flex items-center h-12 px-4 w-64 bg-gray-200 mt-2 rounded focus:outline-none focus:ring-2"
+                                    name="nome" id="nome" type="text" required>
                             </div>
-                        {% else %}
-                            <div class="alert alert-success alert-dismissible fade show text-white">
-                                {{ message|safe}}
-                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">X</button>
+                        
+                            <div class="col-span-2 md:col-span-1">
+                                <label class="font-semibold text-xs mt-3" for="sobrenome">Sobrenome:</label>
+                                <input
+                                    class="flex items-center h-12 px-4 w-64 bg-gray-200 mt-2 rounded focus:outline-none focus:ring-2"
+                                    name="sobrenome" id="nome" type="sobrenome" required>
                             </div>
-                        {% endif %}
-                    {% else %}
-						<div class="alert alert-warning alert-dismissible fade show text-white" >{{ message|escape }}
-							<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">X</button>
-						</div>
-					{% endif %}
-                {% endfor %}
-            </ul>
-        {% endif %}
-
-        <form method="post" class="" validate>
-            {% csrf_token %}
-            <h2 class="">Cadastre-se</h2>
-            <div class="col">
-                {{form.erros}}
-                <div class="row g-2">
-
-                    <div class="col-md">
-                        <div class="form-floating">
-                        <input name="nome" type="text" class="form-control" id="floatingInputGrid" placeholder=" " value="" required>
-                        <label for="floatingInputGrid">Nome</label>
+                        
                         </div>
-                    </div>
-
-                    <div class="col-md">
-                        <div class="col-md">
-                            <div class="form-floating">
-                                <input name="sobrenome" type="text" class="form-control" id="floatingInputGrid" placeholder=" " value="" required>
-                                <label for="floatingInputGrid">Sobrenome</label>
+                        
+                        <div class="grid grid-cols-2 gap-2">
+                        
+                            <div class="col-span-2 md:col-span-1">
+                                <label class="font-semibold text-xs mt-3" for="password">Senha:</label>
+                                <input
+                                    class="flex items-center h-12 px-4 w-64 bg-gray-200 mt-2 rounded focus:outline-none focus:ring-2"
+                                    type="password" name="password" id="password" required>
                             </div>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="row g-2">
-                    <div class="col-md">
-                        <div class="form-floating">
-                        <input name="senha" type="password" class="form-control" id="floatingInputGrid" minlenght="8" maxlength="20" placeholder=" " value="" required>
-                        <label for="floatingInputGrid">Senha</label>
-                        </div>
-                    </div>
-
-                    <div class="col-md">
-                        <div class="col-md">
-                            <div class="form-floating">
-                                <input name="senhaConfirma" type="password" class="form-control" id="floatingInputGrid" placeholder=" " value="" required>
-                                <label for="floatingInputGrid">Confirme sua senha</label>
+                        
+                            <div class="col-span-2 md:col-span-1">
+                                <label class="font-semibold text-xs mt-3" for="passwordConfirm">Confirme sua senha:</label>
+                                <input
+                                    class="flex items-center h-12 px-4 w-64 bg-gray-200 mt-2 rounded focus:outline-none focus:ring-2"
+                                    type="password" name="passwordConfirm" id="passwordConfirm" required>
                             </div>
+                        
                         </div>
-                    </div>
+                        
+                        <div class="grid grid-cols-2 gap-2">
+                            <div class="col-span-2 md:col-span-1">
+                                <label class="font-semibold text-xs mt-3" for="telefone">Telefone:</label>
+                                <input
+                                    minlength="8" maxlength="9"
+                                    class="flex items-center h-12 px-4 w-64 bg-gray-200 mt-2 rounded focus:outline-none focus:ring-2"
+                                    type="tel" name="telefone" id="telefone" required>
+                            </div>
+
+                            <div class="col-span-2 md:col-span-1">
+                                <label class="font-semibold text-xs mt-3" for="email">Email:</label>
+                                <input
+                                    class="flex items-center h-12 px-4 w-64 bg-gray-200 mt-2 rounded focus:outline-none focus:ring-2"
+                                    type="text" name="email" id="email" required>
+                            </div>
+
+                        </div>
+                        
+                        <div class="grid grid-cols-2 gap-2">
+                        
+                            <div class="col-span-2 md:col-span-1">
+                                <label class="font-semibold text-xs mt-3" for="cpf">CPF:</label>
+                                <input
+                                    required pattern="[0-9]{11}"
+                                    class="flex items-center h-12 px-4 w-64 bg-gray-200 mt-2 rounded focus:outline-none focus:ring-2"
+                                    type="text" name="cpf" id="cpf" required>
+                            </div>
+                        
+                            <div class="col-span-2 md:col-span-1">
+                                <label class="font-semibold text-xs mt-3" for="dataNascimento">Data de Nascimento:</label>
+                                <input
+                                    class="flex items-center h-12 px-4 w-64 bg-gray-200 mt-2 rounded focus:outline-none focus:ring-2"
+                                    type="date" name="dataNascimento" id="dataNascimento" required>
+                            </div>
+                        
+                        </div>
+
+                        <button type="submit"
+                            class="flex items-center justify-center h-12 px-6 w-128 bg-blue-600 mt-8 rounded font-semibold text-sm text-blue-100 hover:bg-blue-700">Cadastrar</button>
+                        <div class="flex mt-6 justify-center text-xs">
+                            <span class=" text-gray-300"></span>
+                            <a href="#" class="text-blue-400 hover:text-blue-500">Já tem conta? Entrar!</a>
+                        </div>
+                    </form>
                 </div>
-
-                <div class="form-floating">
-                    <input name="email" type="email" class="form-control" id="floatingInput" placeholder="name@example.com" required>
-                    <label for="floatingInput">Email</label>
-                </div>
-
-                <div class="row g-2">
-
-                    <div class="col-md">
-
-                        <div class="form-floating">
-                            <input name="cpf" class="form-control" minlenght="11" maxlength="11" id="floatingInput" placeholder=" " required pattern="[0-9]{11}">
-                            <label for="floatingInput">CPF  <small><i>(Somente números)</i></small></label>
-                        </div>
-                    </div>
-
-                    <div class="col-md">
-                        <div class="form-floating">
-                            <input name="dataNascimento" type="date" class="form-control" maxlength="10" id="floatingInput" placeholder=" ">
-                            <label for="floatingInput">Data de Nascimento</label>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row g-2">
-                    <div class="col-2">
-
-                        <div class="form-floating">
-                            <input name="ddd" type="tel" class="form-control" minlenght="2" maxlength="2" id="floatingInput" placeholder=" " required>
-                            <label for="floatingInput">DDD</label>
-                        </div>
-                    </div>
-
-                    <div class="col-4">
-
-                        <div class="form-floating">
-                            <input name="telefone" type="tel" class="form-control" minlenght="8" maxlength="9" id="floatingInput" placeholder=" " pattern="[0-9]{9}" required>
-                            <label for="floatingInput">Telefone</label>
-                        </div>
-                    </div>
-
-                    <div class="col-6">
-                        <div class="form-floating">
-                            {% for item in form %}
-                                {% if item.name == 'sexo' %}
-                                    {{item}}
-
-                                {% endif %}
-                            {% endfor %}
-                            <label for="floatingInput">Sexo</label>
-
-                        </div>
-
-                    </div>
-                </div>
-
-
-
             </div>
+    </section>
 
-            <hr>
-            <div class="d-flex justify-content-center col">
+</body>
 
-                <input type="submit" value="Cadastrar" class="btn" style="font-size:18px; background-color:#5f45e0; color:#ffffff; text-shadow: 1px 1px 2px #000;">
-                <span class="col-2"></span>
-            </div>
-
-            <hr>
-            <div class="d-flex justify-content-center row">
-                <ol class="col">
-                    <ul>
-
-                        <p class="text-center">Perdeu sua senha? <a href="#" style="color:#5f45e0;">Recupere aqui.</a></p>
-                    </ul>
-                    <ul>
-
-                        <p class="text-center">Você já tem um cadastro? <a href="{% url 'login' %}" style="color:#5f45e0;">Entre aqui.</a></p>
-                    </ul>
-
-                </ol>
-                <span class="col-2">
-
-                </span>
-
-            </div>
-        </form>
-
-    </div>
-
-
-
-</div>
-
-
-{% endblock%}
+</html>
