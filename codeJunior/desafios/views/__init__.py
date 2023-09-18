@@ -1,0 +1,4 @@
+from desafios.views.SubmissaoCreateView import SubmissaoCreateView
+from desafios.views.DesafiosResolvidosListView import DesafiosResolvidosListView
+from desafios.views.DesafiosListView import DesafiosListView
+from desafios.views.DesafiosDetailView import DesafiosDetailView
