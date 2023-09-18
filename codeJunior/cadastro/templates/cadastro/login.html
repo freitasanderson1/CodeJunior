@@ -1,97 +1,46 @@
-{% extends 'base/base.html' %}
+<!DOCTYPE html>
+<html lang="pt-BR">
 
-{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css" rel="stylesheet">
+</head>
 
-{% block title %}Entrar{% endblock %}
+<body class="bg-gray-300">
 
-{% block content %}
+    <section class="h-screen">
+        <div class="container h-full">
+            <div class="g-6 flex h-full flex-wrap items-center justify-center lg:justify-between">
+                <div class="mb-12 md:mb-0 md:w-8/12 lg:w-6/12">
+                    <h1
+                        class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white ml-8">
+                        Code Junior</h1>
+                </div>
 
+                <div class="min-h-screen flex items-center justify-center">
 
-<div class="container d-flex align-items-center justify-content-between h-100">
-
-
-
-    <div class="">
-
-        <img src="{% static 'assets/IMG/LogoTelaLogin.png' %}" alt="Logo Nutricionistas" width="600">
-    </div>
-
-
-    <div class="justify-content-center">
-
-        {% if messages %}
-            <ul class="messages">
-                {% for message in messages %}
-                        <div class="alert alert-warning alert-dismissible fade show">
-                            <span style="color:#fff;">
-                                {{ message|escape }}
-
-                            </span>
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">X</button>
+                    <form method="post" class="flex flex-col bg-white rounded shadow-lg p-12 mt-12">
+                        <label class="font-semibold text-xs" for="cpf">CPF:</label>
+                        <input
+                            class="flex items-center h-12 px-4 w-64 bg-gray-200 mt-2 rounded focus:outline-none focus:ring-2"
+                            name="cpf" id="cpf" type="text" required>
+                        <label class="font-semibold text-xs mt-3" for="password">Senha:</label>
+                        <input
+                            class="flex items-center h-12 px-4 w-64 bg-gray-200 mt-2 rounded focus:outline-none focus:ring-2"
+                            type="password" name="password" id="password" required>
+                        <button type="submit"
+                            class="flex items-center justify-center h-12 px-6 w-64 bg-blue-600 mt-8 rounded font-semibold text-sm text-blue-100 hover:bg-blue-700">Login</button>
+                        <div class="flex mt-6 justify-center text-xs">
+                            <span class=" text-gray-300">/</span>
+                            <a href="#" class="text-blue-400 hover:text-blue-500">Cadastro</a>
                         </div>
-                {% endfor %}
-            </ul>
-        {% endif %}
-
-        <form method="post" class="" validate>
-            {% csrf_token %}
-            <h2 class="">Entre em sua conta</h2>
-            <div class="col">
-
-                {% for field in form %}
-                    <div class="d-flex justify-content-center align-items-center col" style="padding-right: 10vw;">
-                        <ol class="">
-
-                            {% if field.name == 'username' %}
-                                <ul>
-
-                                    <div class="form-floating">
-                                        <input type="name" name="{{ field.name }}" class="form-control mb-0" id="floatingInputCPF" maxlength="11" placeholder="00000000" style="min-width:150px;" required pattern="[0-9]{11}">
-                                        <label for="floatingInputCPF">CPF<small><i>(Somente números):</i></small></label>
-                                    </div>
-                                </ul>
-
-                            {% else %}
-                                <ul>
-
-                                    <div class="form-floating">
-                                        <input type="password" name="{{ field.name }}" class="form-control mb-0" id="floatingInputPassword" placeholder="*********" style="min-width:150px;" minlenght="8" maxlength="20" required>
-                                        <label for="floatingInputPassword">{{ field.label_tag }}</label>
-                                    </div>
-                                </ul>
-
-                            {% endif %}
-
-
-                            {% if field.errors %}
-                            <ul>
-
-                                <b>
-
-                                    <small style="color:#b00000; font-size:12px;">{{ field.errors|striptags }}</small>
-                                </b>
-                            </ul>
-
-                            {% endif %}
-                        </ol>
-
-                    </div>
-                {% endfor %}
-
+                    </form>
+                </div>
             </div>
+    </section>
 
-            <div class="d-flex justify-content-center">
+</body>
 
-                <input type="submit" value="Entrar" class="btn" style="font-size:18px; background-color:#228b22; color:#ffffff; text-shadow: 1px 1px 2px #000;">
-
-            </div>
-
-
-            <p class="">Perdeu sua senha? <a href="#" style="color:#228b22">Recupere aqui.</a></p>
-            <p class="">Você não tem um cadastro? <a href="{% url 'cadastro' %}" style="color:#228b22">Cadastre-se</a></p>
-        </form>
-
-    </div>
-</div>
-
-{% endblock%}
+</html>
