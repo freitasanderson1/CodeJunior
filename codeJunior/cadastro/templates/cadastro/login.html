@@ -21,11 +21,13 @@
 
                 <div class="min-h-screen flex items-center justify-center">
 
-                    <form method="post" class="flex flex-col bg-white rounded shadow-lg p-12 mt-12">
+                    <form method="post" validate class="flex flex-col bg-white rounded shadow-lg p-12 mt-12">
+                        {% csrf_token %}
+
                         <label class="font-semibold text-xs" for="cpf">CPF:</label>
                         <input
                             class="flex items-center h-12 px-4 w-64 bg-gray-200 mt-2 rounded focus:outline-none focus:ring-2"
-                            name="cpf" id="cpf" type="text" required>
+                            name="username" id="cpf" type="text" required>
                         <label class="font-semibold text-xs mt-3" for="password">Senha:</label>
                         <input
                             class="flex items-center h-12 px-4 w-64 bg-gray-200 mt-2 rounded focus:outline-none focus:ring-2"
