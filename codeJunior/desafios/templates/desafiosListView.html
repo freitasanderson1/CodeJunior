@@ -83,7 +83,7 @@
           {% elif porcentagem < 30 %}
             <p class="border-4 border-red-500 text-red-500 font-bold rounded-full flex items-center justify-center h-24 w-24 text-3xl mb-4">{{porcentagem|floatformat:0}}%</p>
           {% endif %}
-          <p class="flex gap-2"><strong class="text-lg">{{submissoes|length}} submissão</strong> / <strong class="text-lg">{{object_list|length}} desafios</strong></p>
+          <p class="flex gap-2"><strong class="text-lg">{{submissoesCorretas}} Corretas</strong> / <strong class="text-lg">{{submissoes|length}} Total</strong></p>
         </div>
       </div>
     </div>
