@@ -26,7 +26,9 @@ class DesafiosListView(LoginRequiredMixin, ListView):
 
           context['data'] = data
           context['submissoes'] = submissoes
-          context['porcentagem'] = (100 * len(submissoes)) / len(context["object_list"])
+          context['submissoesCorretas'] = submissoes.filter(resultado='Passou').count()
+
+          context['porcentagem'] = (100 * len(submissoes.filter(resultado='Passou')) / submissoes.count())
         return context
 
 

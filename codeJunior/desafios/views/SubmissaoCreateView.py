@@ -2,13 +2,13 @@ import subprocess
 from typing import Any
 from django.forms.models import BaseModelForm
 from django.http import HttpRequest, HttpResponse
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import FormView
 from desafios.models.Submissao import Submissao
 from desafios.forms import SubmissaoForm
 from desafios.models import Desafio
 
 from cadastro.models import Pessoa
-class SubmissaoCreateView(CreateView):
+class SubmissaoCreateView(FormView):
     model = Submissao
     form_class = SubmissaoForm
     template_name = 'submissaoForm.html'
