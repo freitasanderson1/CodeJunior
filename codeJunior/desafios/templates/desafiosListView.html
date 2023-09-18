@@ -1,0 +1,92 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block static_css %}
+    <link rel="stylesheet" href="{% static 'desafios/geral.css' %}">
+{% endblock static_css %}
+
+{% block static_js %}
+<script>
+  const ctx = document.getElementById('myChart');
+  const data = JSON.parse("{{data}}")
+  new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: ['Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro'],
+      datasets: [{
+        label: '# Submissões',
+        data: data,
+        borderWidth: 1,
+        borderColor: '#68D391',
+        backgroundColor: '#68D391',
+      }],
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+</script>
+{% endblock static_js %}
+
+{% block content %}
+{{data}}
+<div class="flex container mx-auto min-h-screen flex-col px-24 py-12">
+  <section class="flex gap-8">
+    <div class="w-full flex-1 flex flex-col">
+
+      <header class="mb-8">
+        <h1 class="text-white text-3xl text-extrabold">Code Junior</h1>
+      </header>
+      <ul class="grid lg:grid-cols-2 gap-4">
+        {% for object in object_list %}
+          <li class="bg-slate-900 p-8 rounded-2xl text-white space-y-4">
+            <strong class="text-xl font-bold">{{object.titulo}}</strong>
+            <div class="space-y-2">
+              <p>
+                <strong>Linguagem: </strong> Python
+              </p>
+              <p>
+                <strong>Estimativa: </strong> {{ object.estimativa|floatformat:0 }}min
+              </p>
+
+              <p>
+                {% if object.dificuldade == 1 %}
+                  <span class="text-green-500">Básico</span>
+                {% elif object.dificuldade == 2 %}
+                  <span class="text-yellow-500">Intermediario</span>
+                {% else %}
+                  <span class="text-red-500">Dificil</span>
+                {% endif %}
+              </p>
+            </div>
+            <button class="p-4 w-full rounded-2xl bg-green-500 text-slate-900 font-bold">Iniciar</button>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="bg-slate-900 p-8 rounded-2xl">
+      <h4 class="text-white font-bold">Dados do Usuário</h4>
+      <div class="mt-4">
+        <canvas id="myChart"></canvas>
+      </div>
+
+      <div class="mt-8 bg-slate-800 p-4 rounded-xl text-white">
+        <h3>Submissões</h3>
+        
+        <div class="mt-4 text-center flex flex-col justify-center items-center">
+          {% if porcentagem > 30 %}
+            <p class="border-4 border-green-500 text-green-500 font-bold rounded-full flex items-center justify-center h-24 w-24 text-3xl mb-4">{{porcentagem|floatformat:0}}%</p>
+          {% elif porcentagem < 30 %}
+            <p class="border-4 border-red-500 text-red-500 font-bold rounded-full flex items-center justify-center h-24 w-24 text-3xl mb-4">{{porcentagem|floatformat:0}}%</p>
+          {% endif %}
+          <p class="flex gap-2"><strong class="text-lg">{{submissoes|length}} submissão</strong> / <strong class="text-lg">{{object_list|length}} desafios</strong></p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+{% endblock content %}
