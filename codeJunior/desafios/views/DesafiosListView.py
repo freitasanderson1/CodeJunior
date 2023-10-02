@@ -27,7 +27,7 @@ class DesafiosListView(LoginRequiredMixin, ListView):
         _data = 0
       
         for submissao in submissoes:
-            print(submissao.dataSubmissao.month, mes)
+            # print(submissao.dataSubmissao.month, mes)
             if submissao.dataSubmissao.month == mes:
                 _data += 1
         data.append(_data)
