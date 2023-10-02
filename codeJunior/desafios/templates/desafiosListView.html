@@ -77,6 +77,12 @@
     </div>
     <div class="bg-slate-900 p-8 rounded-2xl">
       <h4 class="text-white font-bold">Dados do Usuário</h4>
+      <div class="my-4 flex items-center gap-2">
+        <img class="h-16 w-16" src="https://doodleipsum.com/100x100/avatar-2?i=560a7437a5808aa3102849d9e89fa0c5" alt="">
+        <div> 
+          <strong class="text-white">{{ request.user.pessoa.nomeCompleto }}</strong>
+        </div>
+      </div>
       <div class="mt-4">
         <canvas id="myChart"></canvas>
       </div>
