@@ -15,8 +15,8 @@ class DesafiosListView(LoginRequiredMixin, ListView):
       print(context['data'])
       context['submissoes'] = submissoes
       context['submissoesCorretas'] = submissoes.filter(resultado='Passou').count()
-
-      context['porcentagem'] = (100 * len(submissoes.filter(resultado='Passou')) / submissoes.count())
+      if submissoes:
+        context['porcentagem'] = (100 * len(submissoes.filter(resultado='Passou')) / submissoes.count())
       return context
 
     def getDataSubmissoes(self, submissoes):
@@ -25,7 +25,7 @@ class DesafiosListView(LoginRequiredMixin, ListView):
       
       for mes in meses:
         _data = 0
-
+      
         for submissao in submissoes:
             print(submissao.dataSubmissao.month, mes)
             if submissao.dataSubmissao.month == mes:
