@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -8,43 +9,62 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css" rel="stylesheet">
 </head>
 
-<body style="background-color: #152235">
-
+<body style="
+    background-image: url('{% static "img/background-main.jpg" %}');
+    background-color: rgba(0, 0, 0, 0.7);
+    background-blend-mode: overlay;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+">
     <section class="h-screen">
         <div class="container h-full">
             <div class="g-6 flex h-full flex-wrap items-center justify-center lg:justify-between">
-                <div class="mb-12 md:mb-0 md:w-8/12 lg:w-4/12">
-                    <h1
-                    class="mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl lg:text-6xl dark:text-white ml-16"
-                    style="color: #23c35b;">
-                    Code Junior
-                </h1>
-                
+                <div class="mb-12 md:mb-0 md:w-8/12 lg:w-4/12 text-center">
+                    <h1 class="mb-2 text-4xl font-extrabold leading-none tracking-tight md:text-5xl lg:text-6xl dark:text-white" style="color: #23c35b;">
+                        Code Junior
+                    </h1>
+                    <div class="flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-2 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                        <p class="text-3xl font-semibold text-white">Login</p>
+                    </div>
                 </div>
+                
+                
 
                 <div class="min-h-screen flex items-center justify-center md:w-6/12">
+                    <div class="flex flex-col items-center">
 
-                    <form method="post" validate class="flex flex-col bg-white rounded shadow-lg p-12 mt-12">
-                        {% csrf_token %}
+                        <form method="post" action="{% url 'login' %}" class="flex flex-col bg-white rounded shadow-lg p-12">
+                            {% csrf_token %}
 
-                        <label class="font-semibold text-xs" for="cpf">CPF:</label>
-                        <input
-                            class="flex items-center h-12 px-4 w-64 bg-gray-200 mt-2 rounded focus:outline-none focus:ring-2"
-                            name="username" id="cpf" type="text" required>
-                        <label class="font-semibold text-xs mt-3" for="password">Senha:</label>
-                        <input
-                            class="flex items-center h-12 px-4 w-64 bg-gray-200 mt-2 rounded focus:outline-none focus:ring-2"
-                            type="password" name="password" id="password" required>
-                        <button type="submit"
-                            class="flex items-center justify-center h-12 px-6 w-64 bg-blue-600 mt-8 rounded font-semibold text-sm text-blue-100"
-                            style="background-color: #314c87">Login</button>
-                        <div class="flex mt-6 justify-center text-xs">
-                            <span class=" text-gray-300">/</span>
-                            <a href="#" class="text-blue-400 hover:text-blue-500">Cadastro</a>
-                        </div>
-                    </form>
+                            <label class="font-semibold text-xs" for="cpf">CPF:</label>
+                            <input class="flex items-center h-12 px-4 w-64 bg-gray-200 mt-2 rounded focus:outline-none focus:ring-2"
+                                name="username" id="cpf" type="text" required>
+                            <label class="font-semibold text-xs mt-3" for="password">Senha:</label>
+                            <input class="flex items-center h-12 px-4 w-64 bg-gray-200 mt-2 rounded focus:outline-none focus:ring-2"
+                                type="password" name="password" id="password" required>
+                            <button type="submit"
+                                class="flex items-center justify-center h-12 px-6 w-64 bg-blue-600 mt-8 rounded font-semibold text-sm text-blue-100"
+                                style="background-color: #314c87">Login</button>
+                            <div class="flex mt-6 justify-center text-xs">
+                                <a href="{% url 'cadastro' %}" class="text-blue-400 hover:text-blue-500">Cadastro</a>
+                            </div>
+                        </form>
+                        {% if messages %}
+                            <div class="p-2 bg-red-800 items-center text-red-100 leading-none lg:rounded-full flex lg:inline-flex mt-4" role="alert">
+                                <span class="flex rounded-full bg-red-500 uppercase px-2 py-1 text-xs font-bold mr-3">Erro!</span>
+                                {% for message in messages %}
+                                <span class="font-semibold mr-2 text-left flex-auto">{{ message }}</span>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
                 </div>
             </div>
+        </div>
     </section>
 
 </body>
