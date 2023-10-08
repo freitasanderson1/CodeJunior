@@ -1,4 +1,3 @@
-import subprocess
 from django.views.generic.list import ListView
 from desafios.models import Desafio, Trilha, Submissao
 from desafios.forms import SubmissaoForm
@@ -14,9 +13,9 @@ class DesafiosListView(LoginRequiredMixin, ListView):
       context['data'] = self.getDataSubmissoes(submissoes)
       print(context['data'])
       context['submissoes'] = submissoes
-      context['submissoesCorretas'] = submissoes.filter(resultado='Passou').count()
+      context['submissoesCorretas'] = submissoes.filter(resultado=1).count()
       if submissoes:
-        context['porcentagem'] = (100 * len(submissoes.filter(resultado='Passou')) / submissoes.count())
+        context['porcentagem'] = (100 * len(submissoes.filter(resultado=1)) / submissoes.count())
       return context
 
     def getDataSubmissoes(self, submissoes):
