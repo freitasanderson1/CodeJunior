@@ -1,6 +1,6 @@
 from django.db import models
 
-class LinguagemDocumentacao(models.Model):
+class Linguagem(models.Model):
     id = models.BigAutoField(primary_key=True)
     nome = models.CharField(u'Nome', max_length=255)
 

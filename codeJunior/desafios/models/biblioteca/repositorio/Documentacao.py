@@ -1,7 +1,7 @@
 from django.db import models
 
 from cadastro.models import Pessoa
-from desafios.models import LinguagemDocumentacao
+from desafios.models import Linguagem
 
 import uuid
 
@@ -12,7 +12,7 @@ class Documentacao(models.Model):
     nome = models.CharField(u'Nome da Documentação:', max_length=255)
     descricao = models.TextField(u'Descrição da Documentação', max_length=500, null=True, blank=True)
 
-    tipo = models.ForeignKey(LinguagemDocumentacao, verbose_name='Tipo da Documentação', help_text="Guias, Manuais", on_delete=models.PROTECT,)
+    tipo = models.ForeignKey(Linguagem, verbose_name='Tipo da Documentação', help_text="Guias, Manuais", on_delete=models.PROTECT,)
 
     arquivo = models.FileField(u'Arquivo', upload_to='biblioteca/repositorio/')
     
