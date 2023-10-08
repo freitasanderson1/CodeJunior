@@ -3,10 +3,17 @@ from desafios.models import Desafio
 
 from cadastro.models import Pessoa
 
+CHOICES_RESULTADO_SUBMISSAO = (
+    (1, 'Correta'),
+    (2, 'Incorreta'),
+)
+
+
 class Submissao(models.Model):
     problema = models.ForeignKey(Desafio, on_delete=models.CASCADE, related_name='submissao')
     codigo = models.TextField()
-    resultado = models.CharField(max_length=300)  
+    resultado = models.IntegerField(u'Tipo de Local', default=1, choices=CHOICES_RESULTADO_SUBMISSAO)
+
     pessoa = models.ForeignKey(Pessoa, verbose_name=u'Pessoa', null=False, on_delete=models.CASCADE)
     dataSubmissao = models.DateTimeField('Data de Submissão', auto_now_add=True, null=True)
 
