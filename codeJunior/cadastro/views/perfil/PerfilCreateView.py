@@ -1,6 +1,6 @@
 from django.views.generic.edit import CreateView
 
-from codeJunior.cadastro.models import Perfil
+from cadastro.models import Perfil
 
 class PerfilCreateView(CreateView):
     model = Perfil

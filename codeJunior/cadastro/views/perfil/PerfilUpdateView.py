@@ -1,6 +1,6 @@
 from django.views.generic.edit import UpdateView
 
-from codeJunior.cadastro.models import Perfil
+from cadastro.models import Perfil
 
 class PerfilUpdateView(UpdateView):
     model = Perfil
