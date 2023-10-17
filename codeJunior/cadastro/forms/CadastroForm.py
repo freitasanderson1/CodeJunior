@@ -22,4 +22,3 @@ class CadastroForm(forms.ModelForm):
             'sexo',
             'dataNascimento',
         ]
-        

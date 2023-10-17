@@ -1,0 +1,54 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block static_css %}
+    <link rel="stylesheet" href="{% static 'problemasProgramacao/geral.css' %}">
+{% endblock static_css %}
+
+{% block static_js %}
+<script src="{% static "problemasProgramacao/index.js" %}"></script>
+{% endblock static_js %}
+
+{% block content %}
+<div class="px-24 py-12 min-h-screen text-slate-50">
+  <div class="w-1/2 mx-auto mb-8 flex items-center justify-between">
+    <h1 class="font-bold">{{object.titulo}}</h1>
+    <a href="{% url 'desafios-list' %}" class="block h-10 w-10 rounded-full flex items-center justify-center bg-slate-900"><i class="fa-solid fa-chevron-left"></i></a>
+  </div>
+
+  {% if opcao %}
+    <form  class="w-1/2 p-12 mx-auto bg-slate-900 rounded-3xl" method="post" action="{% url 'quiz-resposta-create' opcao.pk %}">
+      {% csrf_token %}
+      <input type="hidden" name="quiz" value="{{ object.pk }}">
+      <input type="hidden" name="opcao" value="{{ opcao.pk }}">
+      <h2 class="font-bold text-lg">{{opcao.titulo}}</h2>
+      <ul class="mt-4 space-y-2">
+        {% for alternativa in opcao.alternativas.all %}
+          <li>
+            <label>
+              <input type="radio" name="alternativaSelecionada" value="{{ alternativa.pk }}" class="hidden">
+              <span class="rounded-2xl block w-full px-8 py-4 bg-slate-950 opcao-quiz">{{ alternativa.descricao }}</span>
+            </label>
+          </li>
+        {% endfor %}
+      </ul>
+
+      <div class="flex justify-end">
+        <button type="submit" class="px-8 py-4 font-bold text-sm bg-green-500 mt-4 rounded-2xl">Próximo</button>
+      </div>
+    </form>
+  {% else %}
+    <div class="w-1/2 p-12 mx-auto bg-slate-900 rounded-3xl text-center">
+      <strong class="text-3xl font-bold">Quiz finalizado</strong>
+      <p class="my-4">Seu placar de acertos e erros foi</p>
+      <p class="flex items-center gap-1 justify-center">
+        <strong>Corretas {{ respostasCorretas.count }}</strong>
+        /
+        <strong>Incorretas {{ respostasIncorretas.count }}</strong>
+      </p>
+    </div>
+  {% endif %}
+  
+  
+</div>
+{% endblock content %}
