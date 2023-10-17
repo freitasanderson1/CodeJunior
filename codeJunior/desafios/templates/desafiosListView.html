@@ -35,43 +35,82 @@
 {% block content %}
 
 <div class="flex container mx-auto min-h-screen flex-col px-24 py-12">
-  <section class="flex gap-8">
+  <section class="flex gap-8 items-start">
     <div class="w-full flex-1 flex flex-col">
 
       <header class="mb-8">
         <h1 class="text-white text-3xl text-extrabold">Code Junior</h1>
       </header>
-      <ul class="grid lg:grid-cols-2 gap-4">
-        {% for object in object_list %}
-          <li class="bg-slate-900 p-8 rounded-2xl text-white space-y-4">
-            <strong class="text-xl font-bold">{{object.titulo}}</strong>
-            <div class="space-y-2">
-              <p>
-                <strong>Linguagem: </strong> Python
-              </p>
-              <p>
-                <strong>Estimativa: </strong> {{ object.estimativa|floatformat:0 }}min
-              </p>
+      
+      {% for object in object_list %}
+        <div class="p-8 bg-slate-900 mb-4 rounded-2xl">
+          <div class="flex justify-between">
+            <strong class="text-white text-2xl">{{ object.titulo }}</strong>
+            
+            {% if object.quiz.pk %}
+              <a href="{% url "quiz-tentativa" object.quiz.pk %}">Quiz</a>
+            {% endif %}
+          </div>
 
-              <p>
-                {% if object.dificuldade == 1 %}
-                  <span class="text-green-500">Básico</span>
-                {% elif object.dificuldade == 2 %}
-                  <span class="text-yellow-500">Intermediario</span>
-                {% else %}
-                  <span class="text-red-500">Dificil</span>
-                {% endif %}
-              </p>
-            </div>
-            <a href="{% url "desafios-detail" object.pk %}" class="p-4 w-full block text-center rounded-2xl bg-green-500 text-slate-900 font-bold">Iniciar</a>
-          </li> 
-        {% endfor %}
-      </ul>
+          <ul class="grid lg:grid-cols-2 gap-4 mt-4">
+            {% for desafio in object.desafios.all %}
+              <li class="bg-slate-800 p-8 rounded-2xl text-white space-y-4">
+                <strong class="text-xl font-bold">{{desafio.titulo}}</strong>
+                <div class="space-y-2">
+                  <p>
+                    <strong>Linguagem: </strong> Python
+                  </p>
+                  <p>
+                    <strong>Estimativa: </strong> {{ desafio.estimativa|floatformat:0 }}min
+                  </p>
+
+                  <p>
+                    {% if desafio.dificuldade == 1 %}
+                      <span class="text-green-500">Básico</span>
+                    {% elif desafio.dificuldade == 2 %}
+                      <span class="text-yellow-500">Intermediario</span>
+                    {% else %}
+                      <span class="text-red-500">Dificil</span>
+                    {% endif %}
+                  </p>
+                </div>
+                <a href="{% url "desafios-detail" desafio.pk %}" class="p-4 w-full block text-center rounded-2xl bg-green-500 text-slate-900 font-bold">Iniciar</a>
+              </li> 
+            {% endfor %}
+          </ul>
+        </div>
+      {% endfor %}
     </div>
     <div class="bg-slate-900 p-8 rounded-2xl">
       <h4 class="text-white font-bold">Dados do Usuário</h4>
+      <div class="my-4 flex items-center gap-2">
+        <img class="h-16 w-16" src="https://doodleipsum.com/100x100/avatar-2?i=560a7437a5808aa3102849d9e89fa0c5" alt="">
+        <div> 
+          <strong class="text-white">{{ request.user.pessoa.nomeCompleto }}</strong>
+        </div>
+      </div>
       <div class="mt-4">
         <canvas id="myChart"></canvas>
+      </div>
+
+      <div class="mt-8 bg-slate-800 p-4 rounded-xl text-white">
+        <h3>Quiz</h3>
+        
+        <ul class="space-y-2 mt-4">
+          {% for trilha in object_list %}
+          <li class="w-full">
+                {% if trilha.checkCompletouTrilha and trilha.quiz_set.first %}
+                  <a class="w-full block text-center rounded-xl bg-green-500 p-4 text-slate-900 font-bold block" href="{% url "quiz-tentativa" trilha.quiz_set.first.slug %}">
+                    {{ trilha }}
+                  </a>
+                  {% else %}
+                  <button class="w-full block text-center rounded-xl bg-red-500 p-4 text-slate-900 font-bold block">
+                    Trilha {{ trilha }} incompleta
+                  </button>
+                {% endif %}
+              </li> 
+          {% endfor %}
+        </ul>
       </div>
 
       <div class="mt-8 bg-slate-800 p-4 rounded-xl text-white">

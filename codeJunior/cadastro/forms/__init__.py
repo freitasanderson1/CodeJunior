@@ -1,1 +1,1 @@
-from cadastro.forms.cadastroForm import CadastroForm
+from cadastro.forms.CadastroForm import CadastroForm
