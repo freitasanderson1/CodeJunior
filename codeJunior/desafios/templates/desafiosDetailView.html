@@ -6,12 +6,12 @@
 {% endblock static_css %}
 
 {% block static_js %}
-<script src="{% static "problemasProgramacao/index.js" %}"></script>
+  <script src="{% static "problemasProgramacao/index.js" %}"></script>
 {% endblock static_js %}
 
 {% block content %}
 <div class=" px-24 py-12">
-  <form method="post" action="{% url "submeterTentativa" %}" class="flex mx-auto max-h-screen min-h-screen h-full gap-8">
+  <form id="formSubmeterDesafio" method="post" action="{% url "api-submissao-desafio" object.pk %}" class="flex mx-auto max-h-screen min-h-screen h-full gap-8">
     {% csrf_token %}
     <input type="hidden" name="problema" value="{{object.pk}}">
     <input type="hidden" name="pessoa" value="{{request.user.pk}}">
@@ -59,7 +59,7 @@
         </div>
       </div>
   
-      <button class="rounded-xl p-4 w-full bg-green-500 font-bold text-slate-900">Submeter</button>
+      <button class="rounded-xl p-4 w-full bg-green-500 font-bold text-slate-900">Submeter <span id="containerLoadingButton"><span/></button>
     </aside>
     <div class="w-full">
       <pre class="editor p-12">

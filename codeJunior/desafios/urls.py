@@ -1,5 +1,13 @@
 from django.urls import path
-from .views import SubmissaoCreateView, DesafiosResolvidosListView, DesafiosListView, DesafiosDetailView, QuizTentativaDetailView, RespostaOpcaoQuizCreateView
+from .views import (
+  SubmissaoCreateView, 
+  DesafiosResolvidosListView, 
+  DesafiosListView, 
+  DesafiosDetailView, 
+  QuizTentativaDetailView, 
+  RespostaOpcaoQuizCreateView,
+  SubmissaoCreateViewSet
+  )
 from cadastro.views import LoginView, SairView, CadastroView
 
 urlpatterns = [
@@ -10,6 +18,8 @@ urlpatterns = [
 
     path('quiz/<slug:slug>/', QuizTentativaDetailView.as_view(), name="quiz-tentativa"),
     path('quiz/<int:pk>/resposta/', RespostaOpcaoQuizCreateView.as_view(), name="quiz-resposta-create"),
+
+    path('api/desafio/<int:pk>/submissao/', SubmissaoCreateViewSet.as_view(), name="api-submissao-desafio"),
 
     #Logins views
     path('login/', LoginView.as_view(), name='login'),
