@@ -9,3 +9,5 @@ from desafios.views.quiz.RespostaOpcaoQuizCreateView import RespostaOpcaoQuizCre
 
 # API
 from desafios.views.API.SolucaoCreateViewSet import SubmissaoCreateViewSet
+#Biblioteca
+from desafios.views.biblioteca.BibliotecaListView import BibliotecaListView

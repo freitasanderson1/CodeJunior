@@ -40,15 +40,15 @@ class SubmissaoCreateViewSet(APIView):
 
         for solucao in desafio.solucao_set.all():
             objSolucao = dict()
-            objSolucao["desafio"] = solucao.desafio
+            objSolucao["desafio"] = solucao.desafio.titulo
             objSolucao["entrada"] = solucao.entrada
             objSolucao["secreta"] = solucao.secreta
 
             if resultadoUsuario.strip() == str(solucao.entrada).strip():
-                objSolucao["correta"] = 1
+                objSolucao["correta"] = True
                 temSolucaoCorreta = temSolucaoCorreta + 1
             else:
-                objSolucao["correta"] = 1
+                objSolucao["correta"] = False
             
             solucoes.append(objSolucao)
                 
@@ -65,6 +65,7 @@ class SubmissaoCreateViewSet(APIView):
             submissao.resultado = 0
 
         # submissao.save()
-        data = json.dumps(solucoes, indent = 4) 
+        print(solucoes)
+        data = json.dumps(solucoes, ensure_ascii=False) 
         print(data)
         return Response(data, status=status.HTTP_200_OK)
