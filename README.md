@@ -1,4 +1,4 @@
-# PS-TvBox
+# Code Junior
 
 #### Link do quadro Trello:
 ```
