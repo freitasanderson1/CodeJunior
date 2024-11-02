@@ -4,9 +4,9 @@ from cadastro.models import Pessoa
 from desafios.models import Trilha, TipoTutorial
 from forum.models import Topico
 NIVEL_CHOICES = [
-    ("0", "Básico"), 
-    ("1", "Intermediário"), 
-    ("2", "Avançado")
+    (0, "Básico"), 
+    (1, "Intermediário"), 
+    (2, "Avançado")
 ]
 
 class Tutorial(models.Model):
@@ -19,7 +19,7 @@ class Tutorial(models.Model):
     topico = models.ForeignKey(Topico, verbose_name="Tópico no Fórum", null=True, blank=True, default=None, on_delete=models.CASCADE)
     
     tipo = models.ForeignKey(TipoTutorial, verbose_name="Tipo", related_name='tutoriais',on_delete=models.CASCADE)
-    nivel = models.CharField(u"Nível", choices=NIVEL_CHOICES)
+    nivel = models.IntegerField(u"Nível", choices=NIVEL_CHOICES)
 
     quemCadastrou = models.ForeignKey(Pessoa, verbose_name='Quem Cadastrou', null=True, blank=True, default=None, on_delete=models.PROTECT)
 

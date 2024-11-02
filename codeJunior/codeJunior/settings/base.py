@@ -8,7 +8,9 @@ ALLOWED_HOSTS = []
 DEBUG = True
 
 INSTALLED_APPS = [
-    "django.contrib.admin",
+    # "django.contrib.admin",
+    "materialdash",
+    "materialdash.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
